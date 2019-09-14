@@ -1,0 +1,27 @@
+.ng-valid[required], .ng-valid.required {
+    border-left: 3px solid greenyellow;
+}
+
+.ng-invalid:not(form) {
+    border-left: 3px solid red;
+}
+
+.alert-danger {
+    margin-top: 2px;
+    padding: 8px;
+    font-size: 14px;
+    background-color: #f17e75; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.form-input {
+    margin-bottom: 10px;
+}
+
+#gdpr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

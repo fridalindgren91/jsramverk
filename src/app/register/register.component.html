@@ -1,0 +1,47 @@
+<div class="content">
+    <h2>Registrering</h2>
+    <p>Här kan du registrera dig som användare för att få tillgång till kmom redovisningarna.</p>
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-container">
+            <label class="input-label">Namn<br>
+            <input type="text" class="form-input" id="name" required [(ngModel)]="registerModel.name" name="name" #name="ngModel"><br>
+            </label>
+
+            <div [hidden]="name.valid || name.pristine" class="alert-danger">
+                Name is required
+            </div>
+
+            <label class="input-label">Mejladress<br>
+            <input type="email" class="form-input" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required [(ngModel)]="registerModel.email" name="email" #email="ngModel"><br>
+            </label>
+
+            <div [hidden]="email.valid || email.pristine" class="alert-danger">
+                Email is required
+            </div>
+            
+            <label class="input-label">Lösenord<br>
+            <input type="password" class="form-input" id="password" required [(ngModel)]="registerModel.password" name="password" #password="ngModel"><br>
+            </label>
+
+            <div [hidden]="password.valid || password.pristine" class="alert-danger">
+                Password is required
+            </div>
+
+            <label class="input-label">Födelsedatum<br>
+            <select id="year" required [(ngModel)]="registerModel.birthYear" name="birthYear" #birthYear="ngModel">
+                <option *ngFor="let y of yearList" [value]="y">{{ y }}</option>
+            </select>
+            <select id="month" required [(ngModel)]="registerModel.birthMonth" name="birthMonth" #birthMonth="ngModel">
+                <option *ngFor="let m of monthList" [value]="m">{{ m }}</option>
+            </select>
+            <select id="day" required [(ngModel)]="registerModel.birthDay" name="birthDay" #birthDay="ngModel">
+                <option *ngFor="let d of dayList" [value]="d">{{ d }}</option>
+            </select>
+            </label><br>
+            <label class="input-label">
+                <input type="checkbox" name="gdpr" id="gdpr">Jag godkänner villkoren för gdpr
+            </label><br>
+            <input type="submit" [disabled]="!registerForm.form.valid" class="submit-btn" value="Registrera">
+        </div>
+    </form>
+</div>
